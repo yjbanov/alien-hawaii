@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 import 'hawaii_wiki.dart';
 import 'model.dart';
@@ -42,6 +43,7 @@ final _router = GoRouter(
 );
 
 void main() {
+  usePathUrlStrategy();
   runApp(const App());
   SemanticsBinding.instance.ensureSemantics();
 }

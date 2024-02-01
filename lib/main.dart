@@ -29,16 +29,18 @@ final _router = GoRouter(
       builder: (context, state) => const HomeScreen(
         title: 'Alien planet Hawaii stories',
       ),
+      routes: [
+        GoRoute(
+          path: 'about-hawaii',
+          builder: (context, state) => const AboutHawaii(),
+        ),
+        for (final Story story in stories)
+          GoRoute(
+            path: story.route,
+            builder: (context, state) => StoryWidget(story),
+          ),
+      ],
     ),
-    GoRoute(
-      path: '/about-hawaii',
-      builder: (context, state) => const AboutHawaii(),
-    ),
-    for (final Story story in stories)
-      GoRoute(
-        path: '/${story.route}',
-        builder: (context, state) => StoryWidget(story),
-      ),
   ],
 );
 

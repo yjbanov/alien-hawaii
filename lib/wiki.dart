@@ -67,9 +67,9 @@ class WikiLink extends StatelessWidget {
       builder: (context, followLink) {
         return TextButton(
           onPressed: () {
-            // TODO: dunno what the effect of followLink is, but the tutorial
-            //       says use it.
             followLink!();
+            // TODO: Only followLink should be necessary here.
+            //  https://github.com/flutter/flutter/issues/143164
             context.go(url);
           },
           child: Text(title, style: const TextStyle(color: Colors.blue)),

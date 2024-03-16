@@ -30,22 +30,19 @@ class StoryWidget extends StatelessWidget {
         title: Text(story.title),
       ),
       body: SelectionArea(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Flexible(
-              child: SizedBox(
-                width: 800,
-                child: ListView(
-                  cacheExtent: 10000,
-                  children: <Widget>[
-                    for (final Section section in story.sections)
-                      _buildSectionWidget(section),
-                  ],
-                ),
+        child: SingleChildScrollView(
+          child: Align(
+            alignment: Alignment.center,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 800),
+              child: Column(
+                children: <Widget>[
+                  for (final Section section in story.sections)
+                    _buildSectionWidget(section),
+                ],
               ),
             ),
-          ],
+          ),
         ),
       ),
     );
